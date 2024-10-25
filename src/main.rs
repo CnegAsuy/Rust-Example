@@ -1,3 +1,4 @@
+//#![allow(unused)]
 //#[allow(unused_imports)]
 //use std::any::type_name_of_val;
 fn main() {
@@ -49,8 +50,20 @@ fn main() {
         println!("{i}");
     }
     */
-
-    
+    // matrix?
+    /*
+    let x = [
+        [true,true,false],
+        [true,false,true],
+        [true,true, false]
+        ];
+        for i in x {
+            for y in i {
+                print!("{}", (if y {1} else {0}))
+            }
+            println!("")
+        }
+    */
 }
 
 // I created a func named a add_two it takes an integer paramater and add 2 of this integer. 
