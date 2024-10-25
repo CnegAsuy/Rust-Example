@@ -1,84 +1,68 @@
-//#![allow(unused)]
-//#[allow(unused_imports)]
-//use std::any::type_name_of_val;
-fn main() {
-    // Tried to assert_eq() func.
-    /* 
-    let x:String = String::from("12");
-    println!("{:?}", assert_eq!(x, "11"));
-    */
-    
-    // Tried to mutable variable
-    /* 
-    let mut x = 1;
-    x += 2;
-    assert_eq!(x, 4);
-    println!("Success");
-    */
-    // mutable variables types are cannot able to change.
-    // x = "12"; // is failed because i try to change the type of x, int32 to str.
-    // but if i try to define the variables again it don't gives any error.
-    /*
-    let y = 12;
-    println!("y is {y} and {:?}", type_name_of_val(&y));
-    let y = "212";
-    println!("y is {y} and {:?}", type_name_of_val(y));
-    */
-    /*
-    // related to funcs on the line 38 and the line 45.
-    println!("12 + 2 is {}" , add_two(12));
-    println!("12 + 14 is {}" , add_two_number_each_other(12, 14));
-    */
-    
-    // Working with bin, oct and hex.
-    // bin = 0b, hex = 0x and oct is defined with 0o.
-    /*
-    let bin = 0b01101i32;
-    let _hex = 0xDi32;
-    let oct = 0o15i32;
-    println!("Number 13 in;");
-    println!("\tBinary is 0b{bin:b}");
-    println!("\tHexadecimal is 0x{_hex:x}");
-    println!("\tOctal is 0o{oct:o}");
-    */
-    // Work with arrays is the easiest way to do anything everytime :D
-    // "for" is work like "foreach", it just like python. But in rust you should define the types it's so boring, but it's important to opimise ig.
-    /*
-    let x = [2,12,14];
-    println!("{x:?}");
-    for i in x {
-        println!("{i}");
-    }
-    */
-    // matrix?
-    /*
-    let x = [
-        [true,true,false],
-        [true,false,true],
-        [true,true, false]
-        ];
-        for i in x {
-            for y in i {
-                print!("{}", (if y {1} else {0}))
-            }
-            println!("")
-        }
-    */
+// I try to work with OOP in rust actually. There is the my code :D.
+use crate::Gender::*;
+// I created the Gender Enum which hold the gender value types
+enum Gender {
+    MALE,
+    FEMALE,
+    LGBT
 }
 
-// I created a func named a add_two it takes an integer paramater and add 2 of this integer. 
-// So this is show by "f(x)= x + 2" in math.
-// I used #[allow(dead_code)] for ignore the warning for unused function 👍.
-/*
-#[allow(dead_code)]
-fn add_two(x: i32) -> i32 {
-    x + 2 
+// Then this is the User Struct i just put 3 value  because i don't need a lot. And as you can see I use gender as Gender enum.
+struct User {
+    name: String,
+    age: u8,
+    gender: Gender,
+
+
 }
-*/
-// This func add the numbers which i take from paramaters and return them.
-/*
-#[allow(dead_code)]
-fn add_two_number_each_other(x: i32, y: i32) -> i32 {
-    x + y
+
+// This is the section which contains the functions about User i created 2 functions.
+impl User {
+    // This code is in the development so my new fuc is so basit it takes a parameter if this parameter equal to 1 it creates a female
+    // if 2 it creates a male and if another it creates a LGBT gender. I used thisfor debug and try. 
+    fn new(x: u32) -> User {
+        if x == 1 {
+            User {
+                gender: FEMALE,
+                name: String::from("bala"),
+                age: 12,
+            }
+        } else if x == 2 {
+            User {
+                gender: MALE,
+                name: String::from("mete"),
+                age: 12,
+            }
+        } else {
+            User {
+                gender: LGBT,
+                name: String::from("deniz"),
+                age: 12,
+            }
+        }
+    }
+
+    // This is the second function, its about introduction itself.
+    fn speak_about_yourself(&self) {
+        let gender_sentence: String;
+        // I created a gender_sentence and i changed its value for it Gender, using match.
+        match self.gender {
+            MALE => gender_sentence = String::from("I'm male"),
+            FEMALE => gender_sentence = String::from("I'm female"),
+            LGBT => gender_sentence = String::from("I support LGBT!")
+        }
+        // And printed its name, age and it gender_sentence.
+        println!("Hello my name is {}, I'm {} years old and {}", self.name, self.age, gender_sentence);
+    }
+
 }
-*/
+
+fn main(){
+    // In an array i created 3 different user x[1] = female, x[2] = male and x[3] = LGBT.
+    let x = [User::new(1), User::new(2), User::new(3)];
+    // and i run the speak_about_yourself function for every single person in the array using for.
+    for i in x {
+        i.speak_about_yourself();
+    }
+}
+// Then its end!
