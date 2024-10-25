@@ -1,3 +1,48 @@
+#[allow(unused_imports)]
+use std::any::type_name_of_val;
 fn main() {
-    println!("Hello, world!");
+    // Tried to assert_eq() func.
+    /* 
+    let x:String = String::from("12");
+    println!("{:?}", assert_eq!(x, "11"));
+    */
+    
+    // Tried to mutable variable
+    /* 
+    let mut x = 1;
+    x += 2;
+    assert_eq!(x, 4);
+    println!("Success");
+    */
+    // mutable variables types are cannot able to change.
+    // x = "12"; // is failed because i try to change the type of x, int32 to str.
+    // but if i try to define the variables again it don't gives any error.
+    /*
+    let y = 12;
+    println!("y is {y} and {:?}", type_name_of_val(&y));
+    let y = "212";
+    println!("y is {y} and {:?}", type_name_of_val(y));
+    */
+    /*
+    // related to funcs on the line 38 and the line 45.
+    println!("12 + 2 is {}" , add_two(12));
+    println!("12 + 14 is {}" , add_two_number_each_other(12, 14));
+    */
 }
+
+// I created a func named a add_two it takes an integer paramater and add 2 of this integer. 
+// So this is show by "f(x)= x + 2" in math.
+// I used #[allow(dead_code)] for ignore the warning for unused function 👍.
+/*
+#[allow(dead_code)]
+fn add_two(x: i32) -> i32 {
+    x + 2 
+}
+*/
+// This func add the numbers which i take from paramaters and return them.
+/*
+#[allow(dead_code)]
+fn add_two_number_each_other(x: i32, y: i32) -> i32 {
+    x + y
+}
+*/
