@@ -4,7 +4,7 @@
 I want to try to learn basics such as variables; attributes like `#![allow(unused)]`; mutable variables; bin, hex, oct types etc.
 
 ## [user.rs](src/user.rs)
-I tried OOP types like `impl`, `struct`, `enums` etc. I created a user with properties `name: String`, `age: u8` and `gender: Gender`. I tried this file in [main3.rs](src/main.rs)
+I tried OOP types like `impl`, `struct`, `enums` etc. I created a user with properties `name: String`, `age: u8` and `gender: Gender`. I tried this file in [main3.rs](src/main3.rs)
 
 ## [derivative.rs](src/derivative.rs)
 I tried to take derivative of a func using `(f(d + dx) - f(d))/dx dx -> 0` formula.
