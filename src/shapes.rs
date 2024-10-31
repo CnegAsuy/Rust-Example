@@ -68,3 +68,7 @@ impl Shape for Circle {
         (2.0*self.radius*PI).abs()
     }
 }
+
+pub fn hello<T>(_x: T) {
+    let _c: T = _x; 
+}
