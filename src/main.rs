@@ -1,11 +1,11 @@
 use std::f64::consts::PI;
 
 fn main() {
-    print!("{}", make_it_fractional(PI));
+    print!("{}", make_it_fractional(1425.));
 }
 
 fn make_it_fractional(num: f64) -> String {
-    let mut counter = 1.;
+    let mut counter = 0.;
     let rnum = {
         loop {
             counter += 1.;
