@@ -1,24 +1,24 @@
-use std::{collections::HashMap, thread::sleep, time::Duration};
+use std::f64::consts::PI;
 
 fn main() {
-    let sn = Duration::from_millis(1000);
-    loop {
-        sleep(sn);
-        let mut map = HashMap::new();
-        map.insert("Bob", 25);
-        map.insert("Alice", 30);
-        map.insert("Alice", 30);
-        map.insert("Charlie", 30);
+    print!("{}", make_it_fractional(PI));
+}
 
-        let target_value = 30;
-
-
-            // Iterate to find the key
-        let key = map.iter().find_map(|(k, &v)| if v == target_value { Some(k) } else { None }).filter(|&&k| {k == "Alice"});        
-        match key {
-            Some(k) => println!("Found key: {}", k),
-            None => println!("Value not found"),
+fn make_it_fractional(num: f64) -> String {
+    let mut counter = 1.;
+    let rnum = {
+        loop {
+            counter += 1.;
+            if is_natural_number(num * counter) {
+                break;
+            }
         }
-    }
+        num * counter
+    };
+    format!("{rnum}/{counter}")
+}
+
+fn is_natural_number(n: f64) -> bool {
+    n > 0.0 && n.fract() == 0.0
 }
 
